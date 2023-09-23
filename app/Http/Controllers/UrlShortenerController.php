@@ -10,7 +10,7 @@ class UrlShortenerController extends Controller
 {
     public function index()
     {
-        $shortLinks = UrlShortener::latest()->get();
+        $shortLinks = UrlShortener::orderBy('id', 'asc')->get();
         return view('urlShortener', compact('shortLinks'));
     }
     public function store(Request $request)
