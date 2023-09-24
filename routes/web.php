@@ -1,8 +1,8 @@
-<?php
+ <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UrlShortenerController;
-/*
+        use Illuminate\Support\Facades\Route;
+        use App\Http\Controllers\UrlShortenerController;
+        /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -13,10 +13,10 @@ use App\Http\Controllers\UrlShortenerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('generate-shorten-link', [UrlShortenerController::class, 'index'])->name('generate-shortlink');
-Route::post('generate-shorten-link', [UrlShortenerController::class, 'store'])->name('generate.shorten.link.post');
-Route::get('{code}', [UrlShortenerController::class, 'urlShortener'])->name('url.shortener');
-Route::delete('short-urls/{id}', [UrlShortenerController::class, 'destroy'])->name('short-urls.destroy');
+        Route::get('/', function () {
+                return view('welcome');
+        });
+        Route::get('generate-shorten-link', [UrlShortenerController::class, 'index'])->name('generate-shortlink');
+        Route::post('generate-shorten-link', [UrlShortenerController::class, 'store'])->name('generate.shorten.link.post');
+        Route::get('{code}', [UrlShortenerController::class, 'urlShortener'])->name('url.shortener');
+        Route::delete('short-urls/{id}', [UrlShortenerController::class, 'destroy'])->name('short-urls.destroy');

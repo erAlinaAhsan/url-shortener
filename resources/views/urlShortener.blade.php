@@ -65,42 +65,34 @@
         h2 {
             color: #343a40;
             font-weight: bold;
-            text-shadow: 2px 2px 2px #eee;
             margin-bottom: 20px;
-            /* Added margin for spacing */
+            text-shadow: 2px 2px 2px #eee;
         }
 
-        .alert {
-            margin-top: 10px;
-        }
-
-        .form-control {
-            border: 2px solid #ced4da;
-            border-radius: 5px;
-        }
-
-        .input-group-text {
-            background-color: #f8f9fa;
-        }
-
-        .table {
-            background-color: #ffffff;
-            border-radius: 10px;
-        }
-
-        .thead-dark {
-            background-color: #343a40;
-            color: #fff;
-            font-weight: bold;
-            border-radius: 10px;
-        }
-
-        /* Added styles for more attractive text */
         .attractive-text {
             font-size: 18px;
             color: #333;
             text-align: center;
             margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Change background color for table rows */
+        .table tr:nth-child(even) {
+            background-color: #e0e0e0;
+            /* Darker gray background color for even rows */
+        }
+
+        .table tr:nth-child(odd) {
+            background-color: #ffffff;
+            /* White background color for odd rows */
         }
     </style>
 
@@ -137,6 +129,14 @@
                     <th>ID</th>
                     <th>Short Link</th>
                     <th>Original Link</th>
+                    <th>IP</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Timezone</th>
+                    <th>Currency Code</th>
+                    <th>Currency Symbol</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -147,6 +147,14 @@
                         <td><a href="{{ route('url.shortener', $row->code) }}" target="_blank">
                                 {{ route('url.shortener', $row->code) }}</a></td>
                         <td>{{ $row->link }}</td>
+                        <td>{{ $row->ip }}</td>
+                        <td>{{ $row->city }}</td>
+                        <td>{{ $row->country }}</td>
+                        <td>{{ $row->latitude }}</td>
+                        <td>{{ $row->longitude }}</td>
+                        <td>{{ $row->timezone }}</td>
+                        <td>{{ $row->currency_code }}</td>
+                        <td>{{ $row->currency_symbol }}</td>
                         <td>
                             <form action="{{ route('short-urls.destroy', $row->id) }}" method="post">
                                 @csrf
@@ -159,6 +167,12 @@
                 @endforeach
             </tbody>
         </table>
+
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2023 Er Alina Ahsan Enterprises. All rights reserved.</p>
     </div>
 </body>
 

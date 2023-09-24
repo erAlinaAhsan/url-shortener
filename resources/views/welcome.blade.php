@@ -12,10 +12,28 @@
             text-align: center;
         }
 
+        header {
+            background-color: #4CAF50;
+            /* Green background color for the header */
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
         h1 {
-            color: #333;
             font-size: 36px;
-            margin-top: 100px;
+            margin-top: 10px;
         }
 
         p {
@@ -41,18 +59,32 @@
         img {
             max-width: 100%;
             height: auto;
-            margin-top: 30px;
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Welcome To Laravel URL Shortener</h1>
-    <p>Shorten your long URLs quickly and easily with our Laravel URL Shortener. Share them more efficiently and track
-        their performance.</p>
-    <a href="{{ route('generate-shortlink') }}">Make your URL short</a>
+    <header>
+        <div class="container">
+            <h1>Welcome To Laravel URL Shortener</h1>
+        </div>
+    </header>
 
-    <img src="https://cre8ive.co.nz/wp-content/uploads/2018/04/url-shortener.png" alt="URL Shortener" />
+    <div class="container">
+        <p>Shorten your long URLs quickly and easily with our Laravel URL Shortener. Share them more efficiently and
+            track
+            their performance.</p>
+        <a href="{{ route('generate-shortlink') }}">Make your URL short</a>
+
+        <img src="https://cre8ive.co.nz/wp-content/uploads/2018/04/url-shortener.png" alt="URL Shortener" />
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Er Alina Ahsan Enterprises. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
