@@ -21,3 +21,4 @@
         Route::post('generate-shorten-link', [UrlShortenerController::class, 'store'])->name('generate.shorten.link.post');
         Route::get('{code}', [UrlShortenerController::class, 'urlShortener'])->name('url.shortener');
         Route::delete('short-urls/{id}', [UrlShortenerController::class, 'destroy'])->name('short-urls.destroy');
+        Route::get('url-details/{id}', [UrlShortenerController::class, 'showDetails'])->name('url.details');

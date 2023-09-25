@@ -16,6 +16,14 @@ return new class extends Migration
             $table->string('code');
             $table->string('link');
             $table->timestamps();
+            $table->string('ip')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('timezone')->nullable();
+            $table->string('currency_code')->nullable();
+            $table->string('currency_symbol')->nullable();
         });
     }
 

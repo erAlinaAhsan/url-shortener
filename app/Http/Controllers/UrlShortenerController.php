@@ -10,9 +10,14 @@ use Illuminate\Support\Str;
 
 class UrlShortenerController extends Controller
 {
+    public function showDetails($id)
+    {
+        $shortLink = UrlShortener::findOrFail($id);
+        return view('urlShortener.details', compact('shortLink'));
+    }
     public function index()
     {
-        $shortLinks = UrlShortener::orderBy('id', 'asc')->get();
+        $shortLinks = UrlShortener::select('id', 'code', 'link')->orderBy('id', 'asc')->get();
         return view('urlShortener', compact('shortLinks'));
     }
     public function store(Request $request)
@@ -51,7 +56,7 @@ class UrlShortenerController extends Controller
 
 
         UrlShortener::create($input);
-        return redirect('generate-shorten-link')->withSuccess('Shortened URL generated successfully!');
+        return redirect('generate-shorten-link')->with('status', 'Shortened URL generated successfully');
     }
     public function urlShortener($code)
     {
@@ -63,6 +68,6 @@ class UrlShortenerController extends Controller
         $shortLink = UrlShortener::findOrFail($id);
         $shortLink->delete();
 
-        return redirect()->back()->with('success', 'Short URL deleted successfully');
+        return redirect()->back();
     }
 }
