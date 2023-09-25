@@ -18,9 +18,14 @@ class UrlShortenerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'link' => 'required|url'
+            'link' => 'required|string',
         ]);
+        $url = $request->link;
 
+        // Check if the URL doesn't start with "http://" or "https://"
+        if (!parse_url($url, PHP_URL_SCHEME)) {
+            $url = "http://" . $url; // Add "http://" by default
+        }
         // Get the user's external IP address using ipify
         $externalIp = (new Client())->get('https://api.ipify.org')->getBody()->getContents();
 
@@ -30,8 +35,9 @@ class UrlShortenerController extends Controller
 
         // Dump the Geoplugin response for debugging
 
-        $input['link'] = $request->link;
-        $input['code'] = Str::random(6);
+        $input['link'] = $url;
+
+        $input['code'] = Str::random(5);
 
         // Store the IP geolocation data in the database
         $input['ip'] = $geolocationData['geoplugin_request'];
@@ -43,13 +49,14 @@ class UrlShortenerController extends Controller
         $input['currency_code'] = $geolocationData['geoplugin_currencyCode'];
         $input['currency_symbol'] = $geolocationData['geoplugin_currencySymbol'];
 
+
         UrlShortener::create($input);
         return redirect('generate-shorten-link')->withSuccess('Shortened URL generated successfully!');
     }
     public function urlShortener($code)
     {
         $find = UrlShortener::where('code', $code)->first();
-        return redirect($find->link);
+        return redirect()->away($find->link);
     }
     public function destroy($id)
     {
