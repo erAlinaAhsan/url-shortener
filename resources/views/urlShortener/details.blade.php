@@ -27,8 +27,8 @@
             <p>Currency Code: {{ $shortLink->currency_code }}</p>
             <p>Currency Symbol: {{ $shortLink->currency_symbol }}</p>
         </div>
-
-
+        <button class="btn btn-success copy-button ">
+            <a href="{{ route('generate-shortlink') }}">Back</a></button>
         <script src="{{ asset('js/script.js') }}"></script>
         <!-- Add your JavaScript or external script links here if needed -->
     </div>
