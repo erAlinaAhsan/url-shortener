@@ -14,17 +14,19 @@
 
 <body>
     <div class="maincontainer">
-        <h2 class="text-center">Welcome to the URL Shortener</h2>
+        <h2 class="text-center">Welcome to Er Alina Ahsan URL Shortener</h2>
         <p class="attractive-text">Easily shorten your long URLs and manage them with our simple tool.</p>
+        <p class="attractive-text">Click on ID to get the URL details.</p>
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         <form method="post" action="{{ route('generate-shortlink') }}">
             @csrf
             <div class="input-group">
-                <input type="text" name="link" class="form-control" placeholder="Enter your long URL" required>
+                <input type="text" name="link" class="form-control narrow-input" placeholder="Enter your long URL"
+                    required>
                 <div class="input-group-append">
-                    <button class="btn btn-success" type="submit">Shorten URL</button>
+                    <button class="btn btn-success " type="submit">Shorten URL</button>
                 </div>
             </div>
             @error('link')
@@ -38,7 +40,6 @@
                     <th>Short Link</th>
                     <th>Original Link</th>
                     <th>Action</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -57,13 +58,19 @@
                                     onclick="return confirm('Are you sure you want to delete this URL?')">Delete</button>
                             </form>
                         </td>
+                        <td>
+                            <button class="btn btn-primary btn-sm copy-button"
+                                data-url="{{ route('url.shortener', $row->code) }}">
+                                Copy
+                            </button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
         <div class="credit">Made with <span style="color:tomato;font-size:20px;">❤ </span>by<a
-                href="https://www.learningrobo.com/"> Er Alina Ahsan Enterprises</a></div>
+                href="https://www.learningrobo.com/"> Er Alina Ahsan </a></div>
     </div>
 
     <script src="{{ asset('js/script.js') }}"></script>
@@ -83,6 +90,7 @@
             }, 3000);
         }
     </script>
+    <script src="{{ asset('js/copy-url.js') }}"></script>
 </body>
 
 </html>

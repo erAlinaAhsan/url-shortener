@@ -1,20 +1,6 @@
+// copy-url.js
 
-const shortenUrl = async () => {
-    const longUrl = document.getElementById('long-url').value;
-    const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${longUrl}`);
-    const data = await response.json();
-    const shortUrl = data.result.full_short_link;
-
-    const shortUrlContainer = document.getElementById('short-url-container');
-    const shortUrlLink = document.getElementById('short-url').querySelector('a');
-    shortUrlLink.href = shortUrl;
-    shortUrlLink.textContent = shortUrl;
-    shortUrlContainer.style.display = 'block';
-};
-
-const shortenBtn = document.getElementById('shorten-btn');
-shortenBtn.addEventListener('click', shortenUrl);
-
+// Check if the browser supports the Clipboard API
 if (navigator.clipboard) {
     const copyButtons = document.querySelectorAll('.copy-button');
 

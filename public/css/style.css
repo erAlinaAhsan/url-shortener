@@ -27,7 +27,7 @@ form label {
 }
 
 form input[type="text"] {
-    width: 90%;
+    width: 60%;
     padding: 10px;
     margin: auto;
     border-radius: 20px;
@@ -36,13 +36,13 @@ form input[type="text"] {
 }
 
 form button {
-    background-color: #fff;
-    color: #8f94fb;
+    background-color: #4b1e9d;
+    color: #fff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 10px;
-    font-size: 25px;
+    border-radius: 50px;
+    font-size: 20px;
     margin-top: 20px;
 }
 
@@ -52,6 +52,7 @@ form button:hover {
 
 #short-url-container {
     margin-top: 20px;
+    width: 60%;
 }
 
 #short-url-container p {
@@ -72,9 +73,9 @@ form button:hover {
 }
 
 .maincontainer {
-    width: 80%;
+    width: 60%;
     height: auto;
-    min-height: 350px;
+    min-height: 400px;
     padding: 40px;
     border-radius: 30px;
     box-shadow: 0px 0px 11px 4px rgba(0, 0, 0, 0.25);
@@ -84,21 +85,55 @@ form button:hover {
     margin: auto;
 }
 
-#copy-btn {
-    background-color: #fff;
-    color: #8f94fb;
+.copy-button {
+    background-color: #4b1e9d;
+    color: #fff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 10px;
-    font-size: 25px;
+    border-radius: 50px;
+    font-size: 20px;
     margin-top: 20px;
+
+}
+
+.copy-button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.copy-button:hover {
+    border: 2px solid #8f94fb;
 }
 
 .credit a {
     text-decoration: none;
     color: #000;
     font-weight: 800;
+}
+
+.narrow-input {
+    width: 20%;
+    /* Adjust the width as per your preference */
+}
+
+.narrow-button {
+    width: 20%;
+    /* Allow button to adjust its width based on content */
+    padding: 2px 5px;
+    /* Customize padding to control button size */
+    font-size: 10px;
+    /* Adjust font size as needed */
+    background-color: #007bff;
+    /* Change button background color */
+    color: #020207;
+    /* Change button text color */
+    border: none;
+    /* Remove button border */
+    border-radius: 5px;
+    /* Add rounded corners */
+    cursor: pointer;
+    font-size: 10px;
 }
 
 .credit {

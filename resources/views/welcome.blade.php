@@ -1,90 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome To Laravel URL Shortener</title>
-    <style>
-        body {
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        header {
-            background-color: #4CAF50;
-            /* Green background color for the header */
-            color: #fff;
-            padding: 10px 0;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-top: 10px;
-        }
-
-        p {
-            color: #666;
-            font-size: 18px;
-        }
-
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        a:hover {
-            background-color: #0056b3;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>Welcome to Er Alina Ahsan URL Shortener</title>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>Welcome To Laravel URL Shortener</h1>
-        </div>
-    </header>
 
-    <div class="container">
-        <p>Shorten your long URLs quickly and easily with our Laravel URL Shortener. Share them more efficiently and
-            track
-            their performance.</p>
-        <a href="{{ route('generate-shortlink') }}">Make your URL short</a>
+    <div class="maincontainer">
+        <h1>Welcome to Er Alina Ahsan URL Shortener</h1>
+        <p>
+            Welcome to our handy URL shortening tool. Whether you're sharing links on social media, in emails, or
+            anywhere else, we're here to make it easier for you.</p>
 
-        <img src="https://cre8ive.co.nz/wp-content/uploads/2018/04/url-shortener.png" alt="URL Shortener" />
+        <p> Simply enter your long URL in the box, and we'll swiftly
+            generate a short link for you. Save characters, track clicks, and manage your links efficiently with our
+            simple and
+            effective tool. </p>
+
+        <p> Form present on next page consists of ID, Short Link, Original Link and Action (Delete, Copy). Clicking on
+            ID
+            will redirect you to the URL Details page which comprises of details like ID, Short Link, Original Link, IP
+            address, City, Country, Latitude, Longitude, Timezone, Currency Code and Currency Symbol. Delete and Copy
+            button
+            present under Action will delete and copy the generated url.</p>
+        <button class="btn btn-success copy-button ">
+            <a href="{{ route('generate-shortlink') }}">Let's Get Started</a></button>
+        <div class="credit">Made with <span style="color:tomato;font-size:20px;">❤ </span>by<a
+                href="https://www.learningrobo.com/"> Er Alina Ahsan </a></div>
     </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Er Alina Ahsan Enterprises. All rights reserved.</p>
-        </div>
-    </footer>
+    <script src="{{ asset('js/script.js') }}"></script>
+    </div>
 </body>
 
 </html>
