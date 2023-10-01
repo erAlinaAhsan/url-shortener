@@ -14,9 +14,24 @@
 
 <body>
     <div class="maincontainer">
-        <h2 class="text-center">Welcome to Er Alina Ahsan URL Shortener</h2>
-        <p class="attractive-text">Easily shorten your long URLs and manage them with our simple tool.</p>
-        <p class="attractive-text">Click on ID to get the URL details.</p>
+        <header>
+            <div style="display: flex; align-items: center;">
+                <button class="btn btn-success"
+                    style="width: 50px; height: 50px; background-color: white;border: 2px solid rgb(73, 56, 56);">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
+                        style="width: 35px; height: 35px;">
+                </button>
+                <span
+                    style="font-family: pacifico; color: rgb(225, 45, 0);-webkit-text-stroke: 2px yellow; margin-left: 10px;">
+                    Qlip</span>
+                <span
+                    style="font-family: 'Comic Sans MS', cursive; color: lightblue; -webkit-text-stroke: 2px white;">ify</span>
+
+            </div>
+        </header>
+
+        <p>
+        </p>
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
@@ -25,52 +40,48 @@
             <div class="input-group">
                 <input type="text" name="link" class="form-control narrow-input" placeholder="Enter your long URL"
                     required>
-                <div class="input-group-append">
-                    <button class="btn btn-success " type="submit">Shorten URL</button>
+                <div class="input-group">
+                    <button class="btn btn-success"
+                        style="width: 100px; height: 37px; background-color: white; border: 3px solid rgb(3, 3, 145); box-shadow: 0 0 0 3px yellow inset; position: relative;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
+                            style="width: 24px; height: 24px; display: block; margin: 0 auto; position: relative; z-index: 1;">
+                    </button>
+
+
+
                 </div>
             </div>
             @error('link')
                 <p class="text-danger mt-2">{{ $message }}</p>
             @enderror
         </form>
+        <p></p>
         <table class="table table-bordered mt-4">
             <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Short Link</th>
-                    <th>Original Link</th>
-                    <th>Action</th>
-                </tr>
+
             </thead>
             <tbody>
-                @foreach ($shortLinks as $row)
-                    <tr>
-                        <td> <a href="{{ route('url.details', $row->id) }}">{{ $row->id }}</a></td>
-                        <td><a href="{{ route('url.shortener', $row->code) }}" target="_blank">
-                                {{ route('url.shortener', $row->code) }}</a>
-                        </td>
-                        <td>{{ $row->link }}</td>
-                        <td>
-                            <form action="{{ route('short-urls.destroy', $row->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Are you sure you want to delete this URL?')">Delete</button>
-                            </form>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary btn-sm copy-button"
-                                data-url="{{ route('url.shortener', $row->code) }}">
-                                Copy
-                            </button>
-                        </td>
-                    </tr>
-                @endforeach
+
             </tbody>
         </table>
+        <p>
+        </p>
+        <footer>
+            <nav>
+                @foreach ($shortLinks as $row)
+                    <tr>
+                        <td> <a href="{{ route('url.details', $row->id) }}">URL Details</a></td>
+                    </tr>
+                @endforeach
+                <span> | </span>
+                <a href="/">Homepage</a>
 
-        <div class="credit">Made with <span style="color:tomato;font-size:20px;">❤ </span>by<a
-                href="https://www.learningrobo.com/"> Er Alina Ahsan </a></div>
+            </nav>
+            <p>
+            </p>
+            <div>© 2023 - URL Shortener</div>
+        </footer>
+
     </div>
 
     <script src="{{ asset('js/script.js') }}"></script>

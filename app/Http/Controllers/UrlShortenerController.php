@@ -39,6 +39,9 @@ class UrlShortenerController extends Controller
         $geolocationData = $response->json();
 
         // Dump the Geoplugin response for debugging
+        if ($previousShortLink = UrlShortener::latest()->first()) {
+            $previousShortLink->delete();
+        }
 
         $input['link'] = $url;
 
