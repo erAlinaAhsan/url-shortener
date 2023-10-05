@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement("ALTER TABLE url_shorteners AUTO_INCREMENT = 1");
+        DB::statement("ALTER TABLE links AUTO_INCREMENT = 1");
     }
 
     /**

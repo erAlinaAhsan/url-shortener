@@ -33,14 +33,15 @@
             <p>Short Link: <a href="{{ route('url.shortener', $shortLink->code) }}"
                     target="_blank">{{ route('url.shortener', $shortLink->code) }}</a></p>
             <p>Original Link: {{ $shortLink->link }}</p>
-            <p>IP: {{ $shortLink->ip }}</p>
-            <p>City: {{ $shortLink->city }}</p>
-            <p>Country: {{ $shortLink->country }}</p>
-            <p>Latitude: {{ $shortLink->latitude }}</p>
-            <p>Longitude: {{ $shortLink->longitude }}</p>
-            <p>Timezone: {{ $shortLink->timezone }}</p>
-            <p>Currency Code: {{ $shortLink->currency_code }}</p>
-            <p>Currency Symbol: {{ $shortLink->currency_symbol }}</p>
+            <p>IP: {{ $linkVisit->ip }}</p>
+            <p>City: {{ $linkVisit->city }}</p>
+            <p>Country: {{ $linkVisit->country }}</p>
+            <p>Latitude: {{ $linkVisit->latitude }}</p>
+            <p>Longitude: {{ $linkVisit->longitude }}</p>
+            <p>Timezone: {{ $linkVisit->timezone }}</p>
+            <p>Currency Code: {{ $linkVisit->currency_code }}</p>
+            <p>Currency Symbol: {{ $linkVisit->currency_symbol }}</p>
+            {{ dd($linkVisit) }}
         </div>
         <button class="btn btn-success copy-button"
             style="border: 3px solid rgb(3, 3, 145); box-shadow: 0 0 0 3px yellow inset; position: relative;">
