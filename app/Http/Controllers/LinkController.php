@@ -43,21 +43,13 @@ class LinkController extends Controller
         $input['code'] = $latestLink ? hash('crc32', $latestLink->id + 1) : hash('crc32', 1);
 
         try {
-            $ip_service = new IpGeolocationService;
-            $geolocationData = $ip_service->handle();
+            // $ip_service = new IpGeolocationService;
+            // $geolocationData = $ip_service->handle();
             if ($previousShortLink = Link::latest()->first()) {
                 $previousShortLink->delete();
             }
-            $input['ip'] = $geolocationData['geoplugin_request'];
-            $input['city'] = $geolocationData['geoplugin_city'];
-            $input['country'] = $geolocationData['geoplugin_countryName'];
-            $input['latitude'] = $geolocationData['geoplugin_latitude'];
-            $input['longitude'] = $geolocationData['geoplugin_longitude'];
-            $input['timezone'] = $geolocationData['geoplugin_timezone'];
-            $input['currency_code'] = $geolocationData['geoplugin_currencyCode'];
-            $input['currency_symbol'] = $geolocationData['geoplugin_currencySymbol'];
-
-            LinkVisit::create($input);
+            
+            Link::create($input);
 
             return redirect('generate-shorten-link')->with('status', 'Shortened URL generated successfully');
         } catch (ConnectException $e) {
@@ -72,13 +64,24 @@ class LinkController extends Controller
         }
     }
 
-
-
-
     public function urlShortener($code)
     {
-        $find = Link::where('code', $code)->first();
-        return redirect()->away($find->link);
+        $ip = request()->ip();
+        $ip_service = new IpGeolocationService($ip);
+        $geolocationData = $ip_service->handle();
+
+        $visit['ip'] = $geolocationData['geoplugin_request'];
+        $visit['city'] = $geolocationData['geoplugin_city'];
+        $visit['country'] = $geolocationData['geoplugin_countryName'];
+        $visit['latitude'] = $geolocationData['geoplugin_latitude'];
+        $visit['longitude'] = $geolocationData['geoplugin_longitude'];
+        $visit['timezone'] = $geolocationData['geoplugin_timezone'];
+        $visit['currency_code'] = $geolocationData['geoplugin_currencyCode'];
+        $visit['currency_symbol'] = $geolocationData['geoplugin_currencySymbol'];
+
+        $link = Link::where('code', $code)->first();
+        $link->linkVisits()->create($visit);
+        return redirect()->away($link->link);
     }
     public function destroy($id)
     {

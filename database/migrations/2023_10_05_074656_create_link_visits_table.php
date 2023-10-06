@@ -10,7 +10,9 @@ class CreateLinkVisitsTable extends Migration
     {
         Schema::create('link_visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('link_id')->constrained('links'); // Create a foreign key relationship with the links table
+            $table->unsignedBigInteger('link_id')->nullable();
+            $table->foreign('link_id')->references('id')->on('links')->onDelete('cascade');
+
             $table->string('ip');
             $table->string('city');
             $table->string('country');

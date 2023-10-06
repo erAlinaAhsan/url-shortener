@@ -32,16 +32,15 @@
             <p>ID: {{ $shortLink->id }}</p>
             <p>Short Link: <a href="{{ route('url.shortener', $shortLink->code) }}"
                     target="_blank">{{ route('url.shortener', $shortLink->code) }}</a></p>
-            <p>Original Link: {{ $shortLink->link }}</p>
-
-            <p>IP: {{ $linkVisit->ip }}</p>
-            <p>City: {{ $linkVisit->city }}</p>
-            <p>Country: {{ $linkVisit->country }}</p>
-            <p>Latitude: {{ $linkVisit->latitude }}</p>
-            <p>Longitude: {{ $linkVisit->longitude }}</p>
-            <p>Timezone: {{ $linkVisit->timezone }}</p>
-            <p>Currency Code: {{ $linkVisit->currency_code }}</p>
-            <p>Currency Symbol: {{ $linkVisit->currency_symbol }}</p>
+            <p>Original Link: {{ $shortLink->link ?? null }}</p>
+            <p>IP: {{ $linkVisit->ip ?? null }}</p>
+            <p>City: {{ $linkVisit->city ?? null }}</p>
+            <p>Country: {{ $linkVisit->country ?? null }}</p>
+            <p>Latitude: {{ $linkVisit->latitude ?? null }}</p>
+            <p>Longitude: {{ $linkVisit->longitude ?? null }}</p>
+            <p>Timezone: {{ $linkVisit->timezone ?? null }}</p>
+            <p>Currency Code: {{ $linkVisit->currency_code ?? null }}</p>
+            <p>Currency Symbol: {{ $linkVisit->currency_symbol ?? null }}</p>
         </div>
         <button class="btn btn-success copy-button"
             style="border: 3px solid rgb(3, 3, 145); box-shadow: 0 0 0 3px yellow inset; position: relative;">
