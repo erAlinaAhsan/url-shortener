@@ -13,6 +13,7 @@
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+        // This is an example comment
 
         Route::get('/', function () {
                 return view('welcome');
