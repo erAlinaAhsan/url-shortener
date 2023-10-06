@@ -17,6 +17,7 @@ class LinkController extends Controller
     public function showDetails($id)
     {
         $shortLink = Link::findOrFail($id);
+
         $linkVisit = $shortLink->linkVisits->last();
         return view('urlShortener.details', compact('shortLink', 'linkVisit'));
     }
@@ -47,7 +48,6 @@ class LinkController extends Controller
             if ($previousShortLink = Link::latest()->first()) {
                 $previousShortLink->delete();
             }
-            // Store data in the database
             $input['ip'] = $geolocationData['geoplugin_request'];
             $input['city'] = $geolocationData['geoplugin_city'];
             $input['country'] = $geolocationData['geoplugin_countryName'];
@@ -57,7 +57,7 @@ class LinkController extends Controller
             $input['currency_code'] = $geolocationData['geoplugin_currencyCode'];
             $input['currency_symbol'] = $geolocationData['geoplugin_currencySymbol'];
 
-            Link::create($input);
+            LinkVisit::create($input);
 
             return redirect('generate-shorten-link')->with('status', 'Shortened URL generated successfully');
         } catch (ConnectException $e) {
@@ -86,9 +86,5 @@ class LinkController extends Controller
         $shortLink->delete();
 
         return redirect()->back();
-    }
-    public function LinkVisits()
-    {
-        return $this->hasMany(LinkVisit::class);
     }
 }
