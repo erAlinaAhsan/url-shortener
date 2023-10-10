@@ -48,16 +48,10 @@ class LinkController extends Controller
             if ($previousShortLink = Link::latest()->first()) {
                 $previousShortLink->delete();
             }
-            
+
             Link::create($input);
 
             return redirect('generate-shorten-link')->with('status', 'Shortened URL generated successfully');
-        } catch (ConnectException $e) {
-            // Handle connection errors
-            return redirect('generate-shorten-link')->with('error', 'Connection error: ' . $e->getMessage());
-        } catch (RequestException $e) {
-            // Handle request errors
-            return redirect('generate-shorten-link')->with('error', 'Request error: ' . $e->getMessage());
         } catch (\Exception $e) {
             // Handle other exceptions
             return redirect('generate-shorten-link')->with('error', 'An error occurred: ' . $e->getMessage());
@@ -66,20 +60,25 @@ class LinkController extends Controller
 
     public function urlShortener($code)
     {
+        $link = Link::where('code', $code)->firstOrFail();
         $ip = request()->ip();
-        $ip_service = new IpGeolocationService($ip);
-        $geolocationData = $ip_service->handle();
+        try {
+            $ip_service = new IpGeolocationService($ip);
+            $geolocationData = $ip_service->handle();
 
-        $visit['ip'] = $geolocationData['geoplugin_request'];
-        $visit['city'] = $geolocationData['geoplugin_city'];
-        $visit['country'] = $geolocationData['geoplugin_countryName'];
-        $visit['latitude'] = $geolocationData['geoplugin_latitude'];
-        $visit['longitude'] = $geolocationData['geoplugin_longitude'];
-        $visit['timezone'] = $geolocationData['geoplugin_timezone'];
-        $visit['currency_code'] = $geolocationData['geoplugin_currencyCode'];
-        $visit['currency_symbol'] = $geolocationData['geoplugin_currencySymbol'];
+            $visit['ip'] = $geolocationData['geoplugin_request'];
+            $visit['city'] = $geolocationData['geoplugin_city'];
+            $visit['country'] = $geolocationData['geoplugin_countryName'];
+            $visit['latitude'] = $geolocationData['geoplugin_latitude'];
+            $visit['longitude'] = $geolocationData['geoplugin_longitude'];
+            $visit['timezone'] = $geolocationData['geoplugin_timezone'];
+            $visit['currency_code'] = $geolocationData['geoplugin_currencyCode'];
+            $visit['currency_symbol'] = $geolocationData['geoplugin_currencySymbol'];
+        } catch (\Exception $e) {
+            // Handle other exceptions
+            return redirect('generate-shorten-link')->with('error', 'An error occurred: ' . $e->getMessage());
+        }
 
-        $link = Link::where('code', $code)->first();
         $link->linkVisits()->create($visit);
         return redirect()->away($link->link);
     }

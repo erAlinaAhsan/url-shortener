@@ -1,0 +1,11 @@
+so you have to run apache on XAMPP
+
+and mysql on docker
+
+ok ?
+
+can you tell how to run mysql on docker
+restart the pc and then reconnect
+just now
+yes
+should i close everything?

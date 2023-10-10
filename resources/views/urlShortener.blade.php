@@ -41,8 +41,7 @@
                 <input type="text" name="link" class="form-control narrow-input" placeholder="Enter your long URL"
                     required>
                 <div class="input-group">
-                    <button class="btn btn-success"
-                        style="width: 100px; height: 37px; background-color: white; border: 3px solid rgb(3, 3, 145); box-shadow: 0 0 0 3px yellow inset; position: relative;">
+                    <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2">
                         <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
                             style="width: 24px; height: 24px; display: block; margin: 0 auto; position: relative; z-index: 1;">
                     </button>

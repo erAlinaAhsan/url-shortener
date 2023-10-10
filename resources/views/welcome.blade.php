@@ -34,8 +34,7 @@
 
 
 
-        <button class="btn btn-success copy-button"
-            style="border: 3px solid rgb(3, 3, 145); box-shadow: 0 0 0 3px yellow inset; position: relative;">
+        <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2">
 
             <a href="{{ route('generate-shortlink') }}">Let's Get Started</a></button>
         <p> </p>

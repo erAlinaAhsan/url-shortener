@@ -14,8 +14,7 @@
     <div class="maincontainer">
         <header>
             <div style="display: flex; align-items: center;">
-                <button class="btn btn-success"
-                    style="width: 50px; height: 50px; background-color: white;border: 2px solid rgb(73, 56, 56);">
+                <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
                         style="width: 35px; height: 35px;">
                 </button>
