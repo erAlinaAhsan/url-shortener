@@ -5,8 +5,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #d9e2f5, #96bde3);
-
+    background: whitesmoke;
 }
 
 html,
@@ -18,9 +17,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #11037dfc;
+    background: rgb(53, 54, 55);
     padding: 15px;
-    border-radius: 20px;
+    border-radius: 5px;
     font-size: 60px;
 }
 
@@ -38,11 +37,10 @@ footer {
 .maincontainer {
     width: 40%;
     padding: 90px;
-    border-radius: 30px;
-    background: linear-gradient(to left, #d9e2f5, #96bde3);
-    box-shadow: 0px 0px 11px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    background: rgb(204, 205, 209);
     margin: auto;
-    border: 2px solid #002e6e;
+    border: 2px solid black;
 }
 
 form label {
@@ -54,9 +52,9 @@ form label {
 form input[type="text"] {
     width: 96%;
     padding: 10px;
-    border-radius: 20px;
-    border: 2px solid #2d06ba;
-    box-shadow: 0px 0px 11px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    border: 2px solid rgb(201, 204, 208);
+    box-shadow: 0px 0px 11px 4px rgb(201, 204, 208);
 }
 
 form button {
@@ -65,7 +63,7 @@ form button {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 5px;
     font-size: 20px;
     margin-top: 20px;
 }
@@ -91,23 +89,15 @@ form button:hover {
 }
 
 .copy-button {
-    background-color: #fff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 12px;
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-.copy-button a {
-    color: #1f0a71;
-    text-decoration: none;
+    background: rgb(206, 208, 210);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    color: black;
 }
 
 .copy-button:hover {
-    border: 2px solid #100382;
+    background: #c8c8c8;
+    color: black;
 }
 
 .credit a {

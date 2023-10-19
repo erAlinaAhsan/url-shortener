@@ -16,16 +16,10 @@
     <div class="maincontainer">
         <header>
             <div style="display: flex; align-items: center;">
-                <button class="btn btn-success"
-                    style="width: 50px; height: 50px; background-color: white;border: 2px solid rgb(73, 56, 56);">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
-                        style="width: 35px; height: 35px;">
+                ✂️
                 </button>
-                <span
-                    style="font-family: pacifico; color: rgb(225, 45, 0);-webkit-text-stroke: 2px yellow; margin-left: 10px;">
-                    Qlip</span>
-                <span
-                    style="font-family: 'Comic Sans MS', cursive; color: lightblue; -webkit-text-stroke: 2px white;">ify</span>
+                <span style="color: white; margin-left: 10px;">
+                    CLIPify</span>
 
             </div>
         </header>
@@ -41,10 +35,11 @@
                 <input type="text" name="link" class="form-control narrow-input" placeholder="Enter your long URL"
                     required>
                 <div class="input-group">
-                    <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
-                            style="width: 24px; height: 24px; display: block; margin: 0 auto; position: relative; z-index: 1;">
+                    <button class="btn btn-success copy-button"
+                        style="background-color: rgb(81, 84, 85); color: white; border: 1px solid black;">
+                        ✂️
                     </button>
+
 
 
 
@@ -100,7 +95,6 @@
             }, 3000);
         }
     </script>
-    <script src="{{ asset('js/copy-url.js') }}"></script>
 </body>
 
 </html>

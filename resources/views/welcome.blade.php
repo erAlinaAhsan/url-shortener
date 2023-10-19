@@ -11,16 +11,10 @@
     <div class="maincontainer">
         <header>
             <div style="display: flex; align-items: center;">
-                <button class="btn btn-success"
-                    style="width: 50px; height: 50px; background-color: white;border: 2px solid rgb(73, 56, 56);">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5604/5604391.png" alt="Scissor"
-                        style="width: 35px; height: 35px;">
-                </button>
-                <span
-                    style="font-family: pacifico; color: rgb(225, 45, 0);-webkit-text-stroke: 2px yellow; margin-left: 10px;">
-                    Qlip</span>
-                <span
-                    style="font-family: 'Comic Sans MS', cursive; color: lightblue; -webkit-text-stroke: 2px white;">ify</span>
+                ✂️
+                <span style="color: white; margin-left: 10px;">
+                    CLIPify</span>
+
 
             </div>
         </header>
@@ -34,9 +28,11 @@
 
 
 
-        <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2">
+        <button class="btn btn-success copy-button">
 
-            <a href="{{ route('generate-shortlink') }}">Let's Get Started</a></button>
+            <a href="{{ route('generate-shortlink') }}" style="color: black; text-decoration: none;">Start</a></button>
+        </button>
+
         <p> </p>
         <footer>
 
